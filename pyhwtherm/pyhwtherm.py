@@ -13,6 +13,7 @@ class PyHWTherm(object):
     BASEURL = "https://" + HOST + "/portal"
     FANAUTO = 0
     FANON = 1
+    FANCIRCULATE = 2
     SYSTEMOFF = 2
     SYSTEMHEAT = 1
     SYSTEMCOOL = 3
@@ -216,6 +217,8 @@ class PyHWTherm(object):
             self.change_request["FanMode"]=self.FANON
         elif mode.upper() == 'AUTO': 
             self.change_request["FanMode"]=self.FANAUTO
+        elif mode.upper() == 'CIRCULATE':
+            self.change_request["FanMode"]=self.FANCIRCULATE
         else:
             return False
         return self.change_request["FanMode"]
